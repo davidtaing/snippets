@@ -1,6 +1,6 @@
 version: "3"
 services:
-  dev-db:
+  example-dev-db:
     image: postgres
     profiles: ["development"]
     ports:
