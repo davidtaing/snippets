@@ -64,6 +64,12 @@ importers:
         specifier: ^0.32.2
         version: 0.32.2
 
+  apps/types:
+    devDependencies:
+      vitest:
+        specifier: ^0.32.2
+        version: 0.32.2
+
   apps/web:
     dependencies:
       next:
@@ -3818,7 +3824,7 @@ packages:
       '@vitest/snapshot': 0.32.2
       '@vitest/spy': 0.32.2
       '@vitest/utils': 0.32.2
-      acorn: 8.8.2
+      acorn: 8.9.0
       acorn-walk: 8.2.0
       cac: 6.7.14
       chai: 4.3.7
