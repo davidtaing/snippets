@@ -1,9 +1,10 @@
 version: "3"
 services:
-  example-dev-db:
+  db:
     image: postgres
     profiles: ["development"]
     ports:
       - 5432:5432
     environment:
       - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=development
