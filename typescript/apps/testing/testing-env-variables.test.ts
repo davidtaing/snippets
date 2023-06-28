@@ -1,5 +1,3 @@
-import { expect, test } from "vitest";
-
 export function getRequiredEnvVariable(name: string): string {
   const value = process.env[name];
   if (!value) {
@@ -8,19 +6,28 @@ export function getRequiredEnvVariable(name: string): string {
   return value;
 }
 
+import { expect, test } from "vitest";
+
+const envBackup = process.env;
+
 // cleans up env variables after test
-function cleanup(env: NodeJS.ProcessEnv) {
-  process.env = { ...env };
+function cleanup() {
+  process.env = envBackup;
+}
+
+function setup(key: string, value: string) {
+  process.env[key] = value;
 }
 
 test("returns string if environment variable is defined", () => {
-  const envBackup = process.env;
-  process.env.DEFINED_TEST_ENV = "test";
   const name = "DEFINED_TEST_ENV";
+  const testValue = "test";
+
+  setup(name, testValue);
 
   expect(getRequiredEnvVariable(name)).toEqual("test");
 
-  cleanup(envBackup);
+  cleanup();
 });
 
 test("throws error if environment variable is not defined", () => {
