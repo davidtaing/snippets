@@ -1,12 +1,5 @@
-export function getRequiredEnvVariable(name: string): string {
-  const value = process.env[name];
-  if (!value) {
-    throw new Error(`Required environment variable "${name}" is not defined.`);
-  }
-  return value;
-}
-
 import { expect, test } from "vitest";
+import { getRequiredEnvVariable } from "../utils";
 
 const envBackup = process.env;
 
