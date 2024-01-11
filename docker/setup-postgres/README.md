@@ -5,9 +5,9 @@ This docker-compose setups a development postgres database docker instance.
 ```Make
 # Example Makefile
 start-dev-db:
-	docker compose --profile dev up -d
+	docker compose --profile development up -d
 stop-dev-db:
-	docker compose --profile dev down
+	docker compose --profile development down
 ```
 
 
